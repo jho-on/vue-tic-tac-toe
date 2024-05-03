@@ -1,0 +1,108 @@
+
+
+body{
+    background-color: hsl(0, 0%, 3%);
+    color: white;
+    margin: 0;
+    max-width: 100dvw;
+}
+
+.wrapper{
+    width: 100dvw;
+    height: 100dvh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn{
+    width: 80px;
+    height: 40px;
+    margin: 10px;
+    background-color:white ;
+    color: hsl(0, 0%, 3%);
+}
+
+
+.changeMarkers{
+    position: absolute;
+    right: 0;
+    top: 0;
+    margin: 0;
+}
+
+.gameBoard{
+    display: grid;
+    gap: 1em;
+    grid-template-columns: repeat(3, 150px);
+    grid-template-rows: repeat(3, 150px);
+
+    .space{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border: 1px solid white;
+        
+        transform: scale(1);
+        transition-property: transform;
+        transition-duration: .2s;
+
+        &.rainbow{
+            h1{
+                animation: infinite rainbow 2.5s linear;
+            }
+           
+        }
+    
+        h1{
+            margin: 0;
+        }
+
+        &:hover{
+            transform: scale(0.9);
+            transition-property: transform;
+            transition-duration: .3s;
+        }
+    }
+}
+
+@keyframes rainbow {
+    0%{
+        color: red;
+        transform: rotateZ(0deg) skew(turn);
+        scale: 1;
+    }
+    15%{
+        color: orange;
+    }
+    30%{
+        color: yellow;
+    }
+    45%{
+        color: green;
+        scale: 2;
+    }
+    60%{
+        color: blue;
+    }
+    75%{
+        color: indigo;
+    }
+    90%{
+        color: violet;
+        
+    }
+    100%{
+        color: red;
+        transform: rotateZ(360deg) skew(360000turn);
+        scale: 1;
+    }
+}
+
+
+@media(max-width: 500px){
+    .gameBoard{
+        grid-template-columns: repeat(3, calc((100dvw - 2em) / 3));
+    }
+}
