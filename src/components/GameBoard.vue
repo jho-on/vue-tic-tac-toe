@@ -1,5 +1,5 @@
 <template>
-    <button class="btn changeMarkers">Change X/O</button>
+    <h1 v-if="winner == undefined">{{turn}}</h1>
     <div v-if="winner != undefined" class="winMsg">
         <h1>{{winner}} wins</h1>
     </div>
