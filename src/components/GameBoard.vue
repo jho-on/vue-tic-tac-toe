@@ -64,13 +64,15 @@
                 return false
             },
             switchTurn(index) {
-                this.gameState[index] = this.turn;
-                if(this.testEnd()){
-                    this.winner = this.turn;
-                    this.$emit("haveWinner", String(this.winner));
-                    
+                if(this.gameState[index] == ''){
+                    this.gameState[index] = this.turn;
+                    if(this.testEnd()){
+                        this.winner = this.turn;
+                        this.$emit("haveWinner", String(this.winner));
+                        
+                    }
+                    return this.turn === "X" ? this.turn = "O" : this.turn = "X";
                 }
-                return this.turn === "X" ? this.turn = "O" : this.turn = "X";
             }
 
         }

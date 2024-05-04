@@ -16,7 +16,7 @@ export default {
     },
     methods: {
         clickSpace() {
-            if(this.winner === undefined){
+            if(this.winner === undefined && this.spaceTurn === ""){
                 this.spaceTurn = this.spaceContent;     
                 this.$emit('clickedSpace')
             }
